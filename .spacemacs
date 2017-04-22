@@ -14,12 +14,9 @@ values."
    ;; Lazy installation of layers (i.e. layers are installed only when a file
    ;; with a supported type is opened). Possible values are `all', `unused'
    ;; and `nil'. `unused' will lazy install only unused layers (i.e. layers
-   ; ; not listed in variable  `dotspacemacs-configuration-layers') files.
-
-Hide Org Mobile Directory: 
-    Sta, `all' will
+   ;; not listed in variable `dotspacemacs-configuration-layers'), `all' will
    ;; lazy install any layer that support lazy installation even the layers
-   ;; listed in `dotspacemacs-configuration-layers'. `ni l' disable the lazy
+   ;; listed in `dotspacemacs-configuration-layers'. `nil' disable the lazy
    ;; installation feature and you have to explicitly list a layer in the
    ;; variable `dotspacemacs-configuration-layers' to install it.
    ;; (default 'unused)
@@ -318,7 +315,7 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(org-agenda-files
    (quote
-    ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "~/Dropbox/Personal/orgmode/test.org")))
+    ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "~/Dropbox/Personal/orgmode/test.org")) t)
  '(org-babel-load-languages (quote ((emacs-lisp . t) (plantuml . t))))
  '(org-babel-no-eval-on-ctrl-c-ctrl-c nil)
  '(org-confirm-babel-evaluate nil)
