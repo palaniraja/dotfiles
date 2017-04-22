@@ -446,3 +446,29 @@ geometry."
 ;; to use planuml with orgmode
 ;; (add-to-list
 ;; 'org-src-lang-modes '("plantuml" . plantuml))
+
+
+;; plant uml - node js implementation - https://www.reddit.com/r/emacs/comments/4g9tzw/near_instantaneous_plantuml_orgbabel_execution/  https://github.com/bling/dotemacs/blob/master/config/init-org.el
+;; seems like I need to execute the below code in scratch buffer
+
+(defun init-org/generate-diagram (uml)
+      (let ((url-request-method "POST")
+            (url-request-extra-headers '(("Content-Type" . "text/plain")))
+            (url-request-data uml))
+        (let* ((buffer (url-retrieve-synchronously "http://localhost:8182/png")))
+          (with-current-buffer buffer
+            (goto-char (point-min))
+            (search-forward "\n\n")
+            (buffer-substring (point) (point-max))))))
+
+
+(defun org-babel-execute:plantuml (body params)
+  (let* ((out-file (or (cdr (assoc :file params))
+                       (error "PlantUML requires a \":file\" header argument"))))
+    (let ((png (init-org/generate-diagram (concat "@startuml\n" body "\n@enduml"))))
+      (with-temp-buffer
+        (insert png)
+        (write-file out-file)))))
+
+;; to display the image inline after execution
+(add-hook 'org-babel-after-execute-hook #'org-redisplay-inline-images)
