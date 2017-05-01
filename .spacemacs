@@ -37,8 +37,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ivy
-     auto-completion
+     helm
+     ;; auto-completion
      ;; better-defaults
      emacs-lisp
      ;; git
@@ -315,13 +315,13 @@ you should place your code here."
  '(evil-want-Y-yank-to-eol nil)
  '(org-agenda-files
    (quote
-    ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "~/Dropbox/Personal/orgmode/test.org")) t)
+    ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "~/Dropbox/Personal/orgmode/test.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (plantuml . t))))
  '(org-confirm-babel-evaluate nil)
  '(org-plantuml-jar-path "/Users/palaniraja/.emacs.d/plantuml.jar")
  '(package-selected-packages
    (quote
-    (which-key use-package macrostep hydra helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx flx helm-descbinds helm-ag evil goto-chg undo-tree elisp-slime-nav diminish bind-map bind-key auto-compile packed dash ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
+    (web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode which-key use-package macrostep hydra helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx flx helm-descbinds helm-ag evil goto-chg undo-tree elisp-slime-nav diminish bind-map bind-key auto-compile packed dash ace-jump-helm-line helm avy helm-core popup async quelpa package-build spacemacs-theme)))
  '(plantuml-jar-path "/Users/palaniraja/.emacs.d/plantuml.jar"))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -347,7 +347,7 @@ you should place your code here."
 
 
 ;; populate agenda from this directory
-(setq org-agenda-files '("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org"))
+(setq org-agenda-files '("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org")) ;; i dont think this is working 
 
 
 ;; remember window frame size https://gist.github.com/synic/0357fdc2dcc777d89d1e
