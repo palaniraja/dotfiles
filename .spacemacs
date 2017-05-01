@@ -55,7 +55,7 @@ values."
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(ox-reveal)
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
@@ -317,7 +317,6 @@ you should place your code here."
    (quote
     ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "~/Dropbox/Personal/orgmode/test.org")) t)
  '(org-babel-load-languages (quote ((emacs-lisp . t) (plantuml . t))))
- '(org-babel-no-eval-on-ctrl-c-ctrl-c nil)
  '(org-confirm-babel-evaluate nil)
  '(org-plantuml-jar-path "/Users/palaniraja/.emacs.d/plantuml.jar")
  '(package-selected-packages
@@ -471,4 +470,12 @@ geometry."
         (write-file out-file)))))
 
 ;; to display the image inline after execution
-(add-hook 'org-babel-after-execute-hook #'org-redisplay-inline-images)
+;; (add-hook 'org-babel-after-execute-hook #'org-redisplay-inline-images)
+
+
+;; ox-reveal 
+ (setq-default dotspacemacs-configuration-layers
+              '((org :variables org-enable-reveal-js-support t)))
+
+;; for some reason, I need to evaluate in scratch buffer for Reveal option to be available in org-export
+;; (require 'ox-reveal)
