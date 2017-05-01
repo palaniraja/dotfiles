@@ -473,7 +473,7 @@ geometry."
 ;; (add-hook 'org-babel-after-execute-hook #'org-redisplay-inline-images)
 
 
-;; ox-reveal 
+;; ox-reveal  - https://github.com/yjwen/org-reveal/
  (setq-default dotspacemacs-configuration-layers
               '((org :variables org-enable-reveal-js-support t)))
 
