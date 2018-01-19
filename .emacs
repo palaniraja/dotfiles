@@ -13,6 +13,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(org-agenda-files
+   (quote
+    ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "/Users/palaniraja/Dropbox/Personal/orgmode/test.org")))
  '(package-selected-packages (quote (undo-tree ##)))
  '(recentf-mode t)
  '(tool-bar-mode nil))
@@ -43,3 +46,37 @@
 ;; (set-frame-parameter nil 'background-mode 'dark)
 ;; Fontify the whole line for headings (with a background color).
 ;; (setq org-fontify-whole-heading-line t)
+
+
+;; spacemacs theme
+(add-to-list 'custom-theme-load-path "~/.emacs.d/spacemacs-theme")
+(load-theme 'spacemacs-dark t)                  
+;; (setq frame-background-mode 'dark)
+;; (set-frame-parameter nil 'background-mode 'dark)
+
+
+;; org mode - files
+;; mobileorg settings based on http://jonathanchu.is/posts/org-mode-and-mobileorg-installation-and-config/
+;; (setq org-directory "~/Dropbox/Personal/orgmode")
+;; (setq org-mobile-inbox-for-pull "~/Dropbox/Personal/orgmode/inbox.org")
+;; (setq org-mobile-directory "~/Dropbox/Personal/orgmode")
+;; (setq org-mobile-files '("~/Dropbox/Personal/orgmode"))
+
+;; Custom agenda view from - https://blog.aaronbieber.com/2016/09/24/an-agenda-for-life-with-org-mode.html
+ (setq org-agenda-custom-commands
+       '(("c" "Simple agenda view"
+          ((tags "PRIORITY=\"A\""
+                 ((org-agenda-skip-function '(org-agenda-skip-entry-if 'todo 'done))
+                  (org-agenda-overriding-header "High-priority unfinished tasks:")))
+           (agenda "")
+           (alltodo "")))))
+
+;; agenda shortcut enable
+(add-to-list 'auto-mode-alist '("\\.org\\'" . org-mode))
+(global-set-key "\C-ca" 'org-agenda)
+
+;; load agenda files
+
+;; (org-agenda-files
+;;   (quote
+;;    ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "~/Dropbox/Personal/orgmode/test.org")))
