@@ -55,6 +55,12 @@
 ;; (set-frame-parameter nil 'background-mode 'dark)
 
 
+;; orgmode-bullets - utf-8 bullets for org mode https://github.com/sabof/org-bullets
+
+(load-file "~/.emacs.d/org-bullets/org-bullets.el")
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
 ;; org mode - files
 ;; mobileorg settings based on http://jonathanchu.is/posts/org-mode-and-mobileorg-installation-and-config/
 ;; (setq org-directory "~/Dropbox/Personal/orgmode")
