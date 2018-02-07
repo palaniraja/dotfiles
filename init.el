@@ -4,9 +4,10 @@
 ;; just comment it out by adding a semicolon to the start of the line.
 ;; You may delete these explanatory comments.
 
-(package-initialize)
-(add-to-list 'package-archives
-             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+;; enable melpa when necessary seems to slow down emacs startup
+;; (package-initialize)
+;; (add-to-list 'package-archives
+;;              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -88,3 +89,13 @@
 ;; (org-agenda-files
 ;;   (quote
 ;;    ("/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "~/Dropbox/Personal/orgmode/test.org")))
+
+
+;; org-capture setup
+(setq org-capture-templates
+ '(("t" "Todo" entry (file+headline "/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "_Notes")
+        "* TODO %?")
+   ("n" "Note" entry (file+headline "/Users/palaniraja/Dropbox/Personal/orgmode/myorg.org" "_Notes")
+        "* %?\n\tCaptured on %U\n")))
+
+(define-key global-map "\C-cc" 'org-capture)
